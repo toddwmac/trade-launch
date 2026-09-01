@@ -2,7 +2,7 @@
 
 > Mirrored into this repo so the library docs are viewable on GitHub. The library workspace itself (deck sources, PUBLISHING.md, restyle recipe) lives on the local machine.
 
-A library of **12 self-contained pitch and curriculum decks** advocating AI core skills for
+A library of **11 self-contained pitch and curriculum decks** advocating AI core skills for
 blue-collar and trade-diploma education, plus a **launch pad** that links them all. Every deck
 is a single HTML page hosted free on GitHub Pages — no servers, no CI, no framework lock-in for
 visitors. The launch pad also carries a private per-deck **notes** feature (browser
@@ -17,7 +17,7 @@ lma-trade-artifacts\                     ← this folder (intentionally NOT a gi
 ├── README.md                            ← you are here
 ├── PUBLISHING.md                        ← step-by-step publish & update procedures (the ops manual)
 ├── trade-launch\                        ← the launch pad (its own GitHub repo, static HTML, no build)
-└── restyled\                            ← the 12 deck projects + restyle tooling
+└── restyled\                            ← the 11 deck projects + restyle tooling
     ├── RESTYLE-ACADEMIC.md              ← the design recipe (dark "shop-floor" → light "academic journal")
     ├── _restyle_batch*.py, _restyle_deck_fix.py   ← historical one-time batch scripts (already applied)
     └── <deck project>\                  ← React 19 + Vite 7 + Tailwind v4 source
@@ -47,8 +47,13 @@ GitHub re-publishes automatically in under a minute.
 | inking-electrical-skills | [inking-electrical-skills](https://github.com/toddwmac/inking-electrical-skills) | https://toddwmac.github.io/inking-electrical-skills/ |
 | mysteryb-electrical-skills | [mysteryb-electrical-skills](https://github.com/toddwmac/mysteryb-electrical-skills) | https://toddwmac.github.io/mysteryb-electrical-skills/ |
 | glm52-electrical-skills | [glm52-electrical-skills](https://github.com/toddwmac/glm52-electrical-skills) | https://toddwmac.github.io/glm52-electrical-skills/ |
-| qwen38-trades-skills (all trades) | [qwen38-trades-skills](https://github.com/toddwmac/qwen38-trades-skills) | https://toddwmac.github.io/qwen38-trades-skills/ |
 | mystery-pilot (position paper) | [mystery-pilot](https://github.com/toddwmac/mystery-pilot) | https://toddwmac.github.io/mystery-pilot/ |
+
+**Retired 2026-09-01:** `qwen38-trades-skills` (all-trades skills deck) was removed from the
+library — its launch-pad card and README entries are gone and the public repo is being deleted
+by the owner. Its source and corrected build remain locally in
+`restyled\LMA-qwen38-ai-skills-for-blue-collar-education\` (including `dist\.git`), so it can be
+republished under a new repo later if wanted.
 
 ## Updating an existing deck
 
@@ -65,7 +70,7 @@ always the same three-command cycle:
 To change a deck's **launch-pad card** (title, blurb, grouping), edit `trade-launch\index.html`
 and commit + push from `trade-launch\` — the pad is plain static HTML with no build step.
 
-The visual design language is documented in [RESTYLE-ACADEMIC.md](restyled/RESTYLE-ACADEMIC.md)
+The visual design language is documented in **RESTYLE-ACADEMIC.md** (local workspace)
 (paper `#faf8f4`, oxford blue `#1e4e8c`, Source Serif 4 display type). The `_restyle_*.py`
 scripts are historical — the batch restyle they performed has already been applied to all decks.
 
@@ -110,8 +115,9 @@ nested under `trade-launch`; Path A keeps decks independent and portable.
 - Deck repos must be **public** (free-plan GitHub Pages requirement).
 - One GitHub repo per deck — the `dist` repo *is* the published site.
 - `node_modules` are intentionally absent; run `npm install` in a project before its first build.
-- The parent folder is deliberately **not** a git repo (the 13 repos embedded inside it would
-  become untracked gitlinks). Don't `git init` here without a plan for the embedded repos.
+- The parent folder is deliberately **not** a git repo (the 12 repos embedded inside it —
+  11 decks + the launch pad — would become untracked gitlinks). Don't `git init` here without
+  a plan for the embedded repos.
 - These decks are subpath-safe by construction (no absolute asset paths), so they work at any
   URL depth — that's why the same file serves from any Pages project site.
 
