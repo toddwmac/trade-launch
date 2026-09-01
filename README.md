@@ -5,7 +5,8 @@
 A library of **12 self-contained pitch and curriculum decks** advocating AI core skills for
 blue-collar and trade-diploma education, plus a **launch pad** that links them all. Every deck
 is a single HTML page hosted free on GitHub Pages — no servers, no CI, no framework lock-in for
-visitors.
+visitors. The launch pad also carries a private per-deck **notes** feature (browser
+`localStorage`, Markdown export, no accounts, nothing uploaded).
 
 **Launch pad:** https://toddwmac.github.io/trade-launch/
 
