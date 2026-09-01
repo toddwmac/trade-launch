@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>AI for the Trades — Deck Library | Applied AI Labs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --paper: #faf8f4;
+    --ink: #22252a;
+    --blue: #1e4e8c;
+    --rule: #e6e0d4;
+    --muted: #6b6f76;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
+    line-height: 1.55;
+  }
+  .wrap { max-width: 72rem; margin: 0 auto; padding: 3.5rem 1.5rem 4rem; }
+  .eyebrow {
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin: 0 0 0.6rem;
+  }
+  h1 {
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    font-weight: 600;
+    line-height: 1.1;
+    margin: 0 0 1rem;
+  }
+  .dek { font-size: 1.12rem; color: var(--muted); max-width: 46rem; margin: 0; }
+  header { border-bottom: 1px solid var(--rule); padding-bottom: 2.2rem; margin-bottom: 2.6rem; }
+  section { margin-bottom: 2.6rem; }
+  h2 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 0.55rem;
+    margin: 0 0 1.1rem;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+    gap: 0.9rem;
+  }
+  .card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 1.05rem 1.15rem;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 120ms ease, transform 120ms ease, box-shadow 120ms ease;
+  }
+  .card:hover {
+    border-color: var(--blue);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(34, 37, 42, 0.07);
+  }
+  .card-eyebrow {
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--blue);
+  }
+  .card-title { font-size: 1.02rem; font-weight: 600; line-height: 1.3; }
+  .card-meta { font-family: Inter, system-ui, sans-serif; font-size: 0.78rem; color: var(--muted); }
+  footer {
+    border-top: 1px solid var(--rule);
+    padding-top: 1.2rem;
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+</style>
+</head>
+<body>
+<main class="wrap">
+  <header>
+    <p class="eyebrow">Applied AI Labs</p>
+    <h1>AI for the Trades</h1>
+    <p class="dek">A library of twelve self-contained pitch and curriculum decks making the case
+    for AI core skills in blue-collar and trade-diploma education. Every deck is a single page —
+    open it, present it, share it.</p>
+  </header>
+
+  <section>
+    <h2>HVAC-R decks</h2>
+    <div class="grid">
+      <a class="card" href="https://toddwmac.github.io/gemini-hvac-pitch/">
+        <span class="card-eyebrow">Gemini</span>
+        <span class="card-title">The AI Mindset for Every Graduate</span>
+        <span class="card-meta">Pitch deck · HVAC-R</span>
+      </a>
+      <a class="card" href="https://toddwmac.github.io/gpt5-hvac-pitch/">
+        <span class="card-eyebrow">GPT-5 · vanilla JS</span>
+        <span class="card-title">HVAC AI Mindset Pitch Deck</span>
+        <span class="card-meta">Pitch deck · HVAC-R</span>
+      </a>
+      <a class="card" href="https://toddwmac.github.io/inking-hvac-pitch/">
+        <span class="card-eyebrow">Inking</span>
+        <span class="card-title">AI Fluency for the Shop Floor</span>
+        <span class="card-meta">Pitch deck · HVAC-R</span>
+      </a>
+      <a class="card" href="https://toddwmac.github.io/opus5max-hvac-skills/">
+        <span class="card-eyebrow">Opus 5 · max</span>
+        <span class="card-title">Cooling the AI Economy — AI Core Skills for HVAC-R Diplomas</span>
+        <span class="card-meta">Skills deck · HVAC-R</span>
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Electrical decks</h2>
+    <div class="grid">
+      <a class="card" href="https://toddwmac.github.io/muse-electrical-pitch/">
+        <span class="card-eyebrow">Muse</span>
+        <span class="card-title">AI Fluency for the Shop Floor</span>
+        <span class="card-meta">Pitch deck · Electrical</span>
+      </a>
+      <a class="card" href="https://toddwmac.github.io/opus-electrical-pitch/">
+        <span class="card-eyebrow">Opus</span>
+        <span class="card-title">The AI Mindset for Every Graduate</span>
+        <span class="card-meta">Pitch deck · Electrical</span>
+      </a>
+      <a class="card" href="https://toddwmac.github.io/gpt56-electrical-skills/">
+        <span class="card-eyebrow">GPT-5.6</span>
+        <span class="card-title">Electrical Intelligence — AI Core Skills for Electrical Trade &amp; Technology</span>
+        <span class="card-meta">Skills deck · Electrical</span>
+      </a>
+      <a class="card" href="https://toddwmac.github.io/inking-electrical-skills/">
+        <span class="card-eyebrow">Inking</span>
+        <span class="card-title">AI Fluency for the Shop Floor</span>
+        <span class="card-meta">Skills deck · Electrical</span>
+      </a>
+      <a class="card" href="https://toddwmac.github.io/mysteryb-electrical-skills/">
+        <span class="card-eyebrow">Mystery-b</span>
+        <span class="card-title">AI Fluency for the Shop Floor</span>
+        <span class="card-meta">Skills deck · Electrical</span>
+      </a>
+      <a class="card" href="https://toddwmac.github.io/glm52-electrical-skills/">
+        <span class="card-eyebrow">GLM 5.2</span>
+        <span class="card-title">AI Fluency for the Shop Floor</span>
+        <span class="card-meta">Skills deck · Electrical</span>
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Trade diplomas</h2>
+    <div class="grid">
+      <a class="card" href="https://toddwmac.github.io/qwen38-trades-skills/">
+        <span class="card-eyebrow">Qwen 3.8</span>
+        <span class="card-title">Blue-Collar AI — The Case for AI Core Skills in Trade Diplomas</span>
+        <span class="card-meta">Skills deck · All trades</span>
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Pilot</h2>
+    <div class="grid">
+      <a class="card" href="https://toddwmac.github.io/mystery-pilot/">
+        <span class="card-eyebrow">Pilot</span>
+        <span class="card-title">AI Fluency for the Shop Floor — Position Paper No. 01</span>
+        <span class="card-meta">Position paper · Restyle pilot</span>
+      </a>
+    </div>
+  </section>
+
+  <footer>12 decks · Applied AI Labs · each deck is an independent single-page site</footer>
+</main>
+</body>
+</html>
