@@ -40,7 +40,7 @@
     margin: 0 0 1rem;
   }
   .dek { font-size: 1.12rem; color: var(--muted); max-width: 46rem; margin: 0; }
-  header { border-bottom: 1px solid var(--rule); padding-bottom: 2.2rem; margin-bottom: 2.6rem; }
+  header { border-bottom: 1px solid var(--rule); padding-bottom: 2.2rem; }
   section { margin-bottom: 2.6rem; }
   h2 {
     font-size: 1.05rem;
@@ -55,21 +55,26 @@
     gap: 0.9rem;
   }
   .card {
+    position: relative;
     display: flex;
     flex-direction: column;
-    gap: 0.4rem;
     background: #fff;
     border: 1px solid var(--rule);
     border-radius: 6px;
     padding: 1.05rem 1.15rem;
-    text-decoration: none;
-    color: inherit;
     transition: border-color 120ms ease, transform 120ms ease, box-shadow 120ms ease;
   }
   .card:hover {
     border-color: var(--blue);
     transform: translateY(-1px);
     box-shadow: 0 2px 8px rgba(34, 37, 42, 0.07);
+  }
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    text-decoration: none;
+    color: inherit;
   }
   .card-eyebrow {
     font-family: Inter, system-ui, sans-serif;
@@ -81,6 +86,126 @@
   }
   .card-title { font-size: 1.02rem; font-weight: 600; line-height: 1.3; }
   .card-meta { font-family: Inter, system-ui, sans-serif; font-size: 0.78rem; color: var(--muted); }
+  .card-notes {
+    position: absolute;
+    top: 0.55rem;
+    right: 0.55rem;
+    display: grid;
+    place-items: center;
+    width: 1.7rem;
+    height: 1.7rem;
+    border: none;
+    border-radius: 4px;
+    background: none;
+    cursor: pointer;
+    color: #c6bfb0;
+    transition: color 120ms ease, background 120ms ease;
+  }
+  .card-notes:hover { color: var(--blue); background: var(--paper); }
+  .card-notes.has-note { color: var(--blue); }
+  .card-notes svg { width: 14px; height: 14px; }
+
+  /* notes toolbar */
+  .notes-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.6rem;
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 0.78rem;
+    color: var(--muted);
+    border-bottom: 1px solid var(--rule);
+    padding: 0.9rem 0 0.9rem;
+    margin-bottom: 2.4rem;
+  }
+  .notes-bar .actions { display: flex; gap: 1.1rem; }
+  .notes-bar button {
+    font: inherit;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    color: var(--blue);
+  }
+  .notes-bar button:hover { text-decoration: underline; }
+  .notes-bar button.danger { color: var(--muted); }
+  .notes-bar button:disabled { color: var(--rule); cursor: default; text-decoration: none; }
+
+  /* notes dialog */
+  dialog {
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    padding: 0;
+    width: min(34rem, calc(100vw - 2rem));
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Source Serif 4", Georgia, serif;
+    box-shadow: 0 24px 60px -30px rgba(34, 37, 42, 0.45);
+  }
+  dialog::backdrop { background: rgba(34, 37, 42, 0.35); }
+  .note-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.1rem 1.2rem 0;
+  }
+  .note-head h3 { margin: 0; font-size: 1.25rem; font-weight: 600; line-height: 1.25; }
+  .note-close {
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    line-height: 1;
+    cursor: pointer;
+    color: var(--muted);
+    padding: 0;
+  }
+  .note-close:hover { color: var(--ink); }
+  .note-hint {
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 0.74rem;
+    color: var(--muted);
+    margin: 0.35rem 1.2rem 0;
+  }
+  #note-text {
+    display: block;
+    width: calc(100% - 2.4rem);
+    min-height: 11rem;
+    margin: 0.8rem 1.2rem 0;
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    background: #fff;
+    padding: 0.7rem 0.8rem;
+    font: inherit;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--ink);
+    resize: vertical;
+  }
+  #note-text:focus { outline: 2px solid var(--blue); outline-offset: -1px; }
+  .note-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.8rem 1.2rem 1.1rem;
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 0.78rem;
+  }
+  .note-status { color: var(--muted); }
+  .note-btns { display: flex; gap: 0.5rem; }
+  .note-btn {
+    font: inherit;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 0.45rem 0.85rem;
+  }
+  .btn-primary { background: var(--blue); color: #fff; border: 1px solid var(--blue); }
+  .btn-primary:hover { background: #174070; }
+  .btn-ghost { background: none; border: 1px solid var(--rule); color: var(--muted); }
+  .btn-ghost:hover { color: #9c4030; border-color: #d8b0a4; }
+
   footer {
     border-top: 1px solid var(--rule);
     padding-top: 1.2rem;
@@ -97,96 +222,330 @@
   <header>
     <p class="eyebrow">Applied AI Labs</p>
     <h1>AI for the Trades</h1>
-    <p class="dek">A library of twelve self-contained pitch and curriculum decks making the case
-    for AI core skills in blue-collar and trade-diploma education. Every deck is a single page —
-    open it, present it, share it.</p>
+    <p class="dek">A library of twelve self-contained pitch and curriculum decks on AI core skills
+    for blue-collar and trade-diploma education. Every deck is a single page — open it, present it,
+    share it.</p>
   </header>
+
+  <div class="notes-bar">
+    <span id="notes-count">Notes are private to this browser — nothing is uploaded.</span>
+    <span class="actions">
+      <button id="export-notes" type="button" disabled>Export notes (.md)</button>
+      <button id="clear-notes" type="button" class="danger" disabled>Clear all</button>
+    </span>
+  </div>
 
   <section>
     <h2>HVAC-R decks</h2>
     <div class="grid">
-      <a class="card" target="_blank" rel="noopener" href="https://toddwmac.github.io/gemini-hvac-pitch/">
-        <span class="card-eyebrow">Gemini</span>
-        <span class="card-title">The AI Mindset for Every Graduate</span>
-        <span class="card-meta">Pitch deck · HVAC-R</span>
-      </a>
-      <a class="card" target="_blank" rel="noopener" href="https://toddwmac.github.io/gpt5-hvac-pitch/">
-        <span class="card-eyebrow">GPT-5 · vanilla JS</span>
-        <span class="card-title">HVAC AI Mindset Pitch Deck</span>
-        <span class="card-meta">Pitch deck · HVAC-R</span>
-      </a>
-      <a class="card" target="_blank" rel="noopener" href="https://toddwmac.github.io/inking-hvac-pitch/">
-        <span class="card-eyebrow">Inking</span>
-        <span class="card-title">AI Fluency for the Shop Floor</span>
-        <span class="card-meta">Pitch deck · HVAC-R</span>
-      </a>
-      <a class="card" target="_blank" rel="noopener" href="https://toddwmac.github.io/opus5max-hvac-skills/">
-        <span class="card-eyebrow">Opus 5 · max</span>
-        <span class="card-title">Cooling the AI Economy — AI Core Skills for HVAC-R Diplomas</span>
-        <span class="card-meta">Skills deck · HVAC-R</span>
-      </a>
+      <article class="card" data-deck="gemini-hvac-pitch" data-model="Gemini" data-title="The AI Mindset for Every Graduate">
+        <a class="card-body" target="_blank" rel="noopener" href="https://toddwmac.github.io/gemini-hvac-pitch/">
+          <span class="card-eyebrow">Gemini</span>
+          <span class="card-title">The AI Mindset for Every Graduate</span>
+          <span class="card-meta">Pitch deck · HVAC-R</span>
+        </a>
+        <button class="card-notes" type="button" aria-label="Notes: The AI Mindset for Every Graduate">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/></svg>
+        </button>
+      </article>
+      <article class="card" data-deck="gpt5-hvac-pitch" data-model="GPT-5 · vanilla JS" data-title="HVAC AI Mindset Pitch Deck">
+        <a class="card-body" target="_blank" rel="noopener" href="https://toddwmac.github.io/gpt5-hvac-pitch/">
+          <span class="card-eyebrow">GPT-5 · vanilla JS</span>
+          <span class="card-title">HVAC AI Mindset Pitch Deck</span>
+          <span class="card-meta">Pitch deck · HVAC-R</span>
+        </a>
+        <button class="card-notes" type="button" aria-label="Notes: HVAC AI Mindset Pitch Deck">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/></svg>
+        </button>
+      </article>
+      <article class="card" data-deck="inking-hvac-pitch" data-model="Inking" data-title="AI Fluency for the Shop Floor (HVAC pitch)">
+        <a class="card-body" target="_blank" rel="noopener" href="https://toddwmac.github.io/inking-hvac-pitch/">
+          <span class="card-eyebrow">Inking</span>
+          <span class="card-title">AI Fluency for the Shop Floor</span>
+          <span class="card-meta">Pitch deck · HVAC-R</span>
+        </a>
+        <button class="card-notes" type="button" aria-label="Notes: AI Fluency for the Shop Floor (HVAC pitch)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/></svg>
+        </button>
+      </article>
+      <article class="card" data-deck="opus5max-hvac-skills" data-model="Opus 5 · max" data-title="Cooling the AI Economy — AI Core Skills for HVAC-R Diplomas">
+        <a class="card-body" target="_blank" rel="noopener" href="https://toddwmac.github.io/opus5max-hvac-skills/">
+          <span class="card-eyebrow">Opus 5 · max</span>
+          <span class="card-title">Cooling the AI Economy — AI Core Skills for HVAC-R Diplomas</span>
+          <span class="card-meta">Skills deck · HVAC-R</span>
+        </a>
+        <button class="card-notes" type="button" aria-label="Notes: Cooling the AI Economy">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/></svg>
+        </button>
+      </article>
     </div>
   </section>
 
   <section>
     <h2>Electrical decks</h2>
     <div class="grid">
-      <a class="card" target="_blank" rel="noopener" href="https://toddwmac.github.io/muse-electrical-pitch/">
-        <span class="card-eyebrow">Muse</span>
-        <span class="card-title">AI Fluency for the Shop Floor</span>
-        <span class="card-meta">Pitch deck · Electrical</span>
-      </a>
-      <a class="card" target="_blank" rel="noopener" href="https://toddwmac.github.io/opus-electrical-pitch/">
-        <span class="card-eyebrow">Opus</span>
-        <span class="card-title">The AI Mindset for Every Graduate</span>
-        <span class="card-meta">Pitch deck · Electrical</span>
-      </a>
-      <a class="card" target="_blank" rel="noopener" href="https://toddwmac.github.io/gpt56-electrical-skills/">
-        <span class="card-eyebrow">GPT-5.6</span>
-        <span class="card-title">Electrical Intelligence — AI Core Skills for Electrical Trade &amp; Technology</span>
-        <span class="card-meta">Skills deck · Electrical</span>
-      </a>
-      <a class="card" target="_blank" rel="noopener" href="https://toddwmac.github.io/inking-electrical-skills/">
-        <span class="card-eyebrow">Inking</span>
-        <span class="card-title">AI Fluency for the Shop Floor</span>
-        <span class="card-meta">Skills deck · Electrical</span>
-      </a>
-      <a class="card" target="_blank" rel="noopener" href="https://toddwmac.github.io/mysteryb-electrical-skills/">
-        <span class="card-eyebrow">Mystery-b</span>
-        <span class="card-title">AI Fluency for the Shop Floor</span>
-        <span class="card-meta">Skills deck · Electrical</span>
-      </a>
-      <a class="card" target="_blank" rel="noopener" href="https://toddwmac.github.io/glm52-electrical-skills/">
-        <span class="card-eyebrow">GLM 5.2</span>
-        <span class="card-title">AI Fluency for the Shop Floor</span>
-        <span class="card-meta">Skills deck · Electrical</span>
-      </a>
+      <article class="card" data-deck="muse-electrical-pitch" data-model="Muse" data-title="AI Fluency for the Shop Floor (electrical pitch)">
+        <a class="card-body" target="_blank" rel="noopener" href="https://toddwmac.github.io/muse-electrical-pitch/">
+          <span class="card-eyebrow">Muse</span>
+          <span class="card-title">AI Fluency for the Shop Floor</span>
+          <span class="card-meta">Pitch deck · Electrical</span>
+        </a>
+        <button class="card-notes" type="button" aria-label="Notes: AI Fluency for the Shop Floor (electrical pitch)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/></svg>
+        </button>
+      </article>
+      <article class="card" data-deck="opus-electrical-pitch" data-model="Opus" data-title="The AI Mindset for Every Graduate (electrical pitch)">
+        <a class="card-body" target="_blank" rel="noopener" href="https://toddwmac.github.io/opus-electrical-pitch/">
+          <span class="card-eyebrow">Opus</span>
+          <span class="card-title">The AI Mindset for Every Graduate</span>
+          <span class="card-meta">Pitch deck · Electrical</span>
+        </a>
+        <button class="card-notes" type="button" aria-label="Notes: The AI Mindset for Every Graduate (electrical pitch)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/></svg>
+        </button>
+      </article>
+      <article class="card" data-deck="gpt56-electrical-skills" data-model="GPT-5.6" data-title="Electrical Intelligence — AI Core Skills for Electrical Trade &amp; Technology">
+        <a class="card-body" target="_blank" rel="noopener" href="https://toddwmac.github.io/gpt56-electrical-skills/">
+          <span class="card-eyebrow">GPT-5.6</span>
+          <span class="card-title">Electrical Intelligence — AI Core Skills for Electrical Trade &amp; Technology</span>
+          <span class="card-meta">Skills deck · Electrical</span>
+        </a>
+        <button class="card-notes" type="button" aria-label="Notes: Electrical Intelligence">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/></svg>
+        </button>
+      </article>
+      <article class="card" data-deck="inking-electrical-skills" data-model="Inking" data-title="AI Fluency for the Shop Floor (electrical skills)">
+        <a class="card-body" target="_blank" rel="noopener" href="https://toddwmac.github.io/inking-electrical-skills/">
+          <span class="card-eyebrow">Inking</span>
+          <span class="card-title">AI Fluency for the Shop Floor</span>
+          <span class="card-meta">Skills deck · Electrical</span>
+        </a>
+        <button class="card-notes" type="button" aria-label="Notes: AI Fluency for the Shop Floor (electrical skills)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/></svg>
+        </button>
+      </article>
+      <article class="card" data-deck="mysteryb-electrical-skills" data-model="Mystery-b" data-title="AI Fluency for the Shop Floor (electrical skills)">
+        <a class="card-body" target="_blank" rel="noopener" href="https://toddwmac.github.io/mysteryb-electrical-skills/">
+          <span class="card-eyebrow">Mystery-b</span>
+          <span class="card-title">AI Fluency for the Shop Floor</span>
+          <span class="card-meta">Skills deck · Electrical</span>
+        </a>
+        <button class="card-notes" type="button" aria-label="Notes: AI Fluency for the Shop Floor (electrical skills, Mystery-b)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/></svg>
+        </button>
+      </article>
+      <article class="card" data-deck="glm52-electrical-skills" data-model="GLM 5.2" data-title="AI Fluency for the Shop Floor (electrical skills)">
+        <a class="card-body" target="_blank" rel="noopener" href="https://toddwmac.github.io/glm52-electrical-skills/">
+          <span class="card-eyebrow">GLM 5.2</span>
+          <span class="card-title">AI Fluency for the Shop Floor</span>
+          <span class="card-meta">Skills deck · Electrical</span>
+        </a>
+        <button class="card-notes" type="button" aria-label="Notes: AI Fluency for the Shop Floor (electrical skills, GLM 5.2)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/></svg>
+        </button>
+      </article>
     </div>
   </section>
 
   <section>
     <h2>Trade diplomas</h2>
     <div class="grid">
-      <a class="card" target="_blank" rel="noopener" href="https://toddwmac.github.io/qwen38-trades-skills/">
-        <span class="card-eyebrow">Qwen 3.8</span>
-        <span class="card-title">Blue-Collar AI — The Case for AI Core Skills in Trade Diplomas</span>
-        <span class="card-meta">Skills deck · All trades</span>
-      </a>
+      <article class="card" data-deck="qwen38-trades-skills" data-model="Qwen 3.8" data-title="Blue-Collar AI — The Case for AI Core Skills in Trade Diplomas">
+        <a class="card-body" target="_blank" rel="noopener" href="https://toddwmac.github.io/qwen38-trades-skills/">
+          <span class="card-eyebrow">Qwen 3.8</span>
+          <span class="card-title">Blue-Collar AI — The Case for AI Core Skills in Trade Diplomas</span>
+          <span class="card-meta">Skills deck · All trades</span>
+        </a>
+        <button class="card-notes" type="button" aria-label="Notes: Blue-Collar AI">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/></svg>
+        </button>
+      </article>
     </div>
   </section>
 
   <section>
     <h2>Pilot</h2>
     <div class="grid">
-      <a class="card" target="_blank" rel="noopener" href="https://toddwmac.github.io/mystery-pilot/">
-        <span class="card-eyebrow">Pilot</span>
-        <span class="card-title">AI Fluency for the Shop Floor — Position Paper No. 01</span>
-        <span class="card-meta">Position paper · Restyle pilot</span>
-      </a>
+      <article class="card" data-deck="mystery-pilot" data-model="Pilot" data-title="AI Fluency for the Shop Floor — Position Paper No. 01">
+        <a class="card-body" target="_blank" rel="noopener" href="https://toddwmac.github.io/mystery-pilot/">
+          <span class="card-eyebrow">Pilot</span>
+          <span class="card-title">AI Fluency for the Shop Floor — Position Paper No. 01</span>
+          <span class="card-meta">Position paper · Restyle pilot</span>
+        </a>
+        <button class="card-notes" type="button" aria-label="Notes: AI Fluency for the Shop Floor (position paper)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/></svg>
+        </button>
+      </article>
     </div>
   </section>
 
   <footer>12 decks · Applied AI Labs · each deck is an independent single-page site · <a href="https://github.com/toddwmac/trade-launch/blob/main/README.md" target="_blank" rel="noopener">library README</a></footer>
 </main>
+
+<dialog id="note-dialog" aria-labelledby="note-title">
+  <div class="note-head">
+    <div>
+      <p class="eyebrow" id="note-model">Deck</p>
+      <h3 id="note-title">Notes</h3>
+    </div>
+    <button class="note-close" id="note-close" type="button" aria-label="Close notes">×</button>
+  </div>
+  <p class="note-hint">Saved privately in this browser only — nothing is uploaded. Use <strong>Export notes</strong> above to keep a Markdown copy.</p>
+  <textarea id="note-text" placeholder="Notes on this deck — what landed, what to push back on, follow-ups…"></textarea>
+  <div class="note-actions">
+    <span class="note-status" id="note-status"></span>
+    <span class="note-btns">
+      <button class="note-btn btn-ghost" id="note-delete" type="button">Remove note</button>
+      <button class="note-btn btn-primary" id="note-done" type="button">Done</button>
+    </span>
+  </div>
+</dialog>
+
+<script>
+(function () {
+  "use strict";
+  var KEY = "tl-notes-v1";
+  var storageOk = true;
+  try { localStorage.setItem("tl-test", "1"); localStorage.removeItem("tl-test"); }
+  catch (e) { storageOk = false; }
+
+  function load() {
+    if (!storageOk) return {};
+    try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { return {}; }
+  }
+  function persist(db) {
+    if (!storageOk) return;
+    try { localStorage.setItem(KEY, JSON.stringify(db)); } catch (e) {}
+  }
+
+  var cards = Array.prototype.slice.call(document.querySelectorAll(".card[data-deck]"));
+  var dialog = document.getElementById("note-dialog");
+  var textEl = document.getElementById("note-text");
+  var statusEl = document.getElementById("note-status");
+  var countEl = document.getElementById("notes-count");
+  var exportBtn = document.getElementById("export-notes");
+  var clearBtn = document.getElementById("clear-notes");
+  var deleteBtn = document.getElementById("note-delete");
+  var doneBtn = document.getElementById("note-done");
+  var closeBtn = document.getElementById("note-close");
+  var current = null;
+  var timer = null;
+
+  function card(slug) {
+    return cards.filter(function (c) { return c.getAttribute("data-deck") === slug; })[0];
+  }
+  function info(slug) {
+    var c = card(slug);
+    return {
+      slug: slug,
+      model: c.getAttribute("data-model"),
+      title: c.getAttribute("data-title"),
+      url: c.querySelector("a").href
+    };
+  }
+
+  function refresh() {
+    var db = load();
+    var n = 0;
+    cards.forEach(function (c) {
+      var slug = c.getAttribute("data-deck");
+      var has = db[slug] && db[slug].text && db[slug].text.trim().length > 0;
+      c.querySelector(".card-notes").classList.toggle("has-note", !!has);
+      if (has) n++;
+    });
+    countEl.textContent = storageOk
+      ? (n === 0
+          ? "No notes yet — use the pencil on any card. Notes are private to this browser."
+          : n + (n === 1 ? " deck annotated" : " decks annotated") + " — notes are private to this browser.")
+      : "Storage is unavailable in this browser — notes will not persist.";
+    exportBtn.disabled = clearBtn.disabled = (n === 0);
+  }
+
+  function flashStatus(msg) {
+    statusEl.textContent = msg;
+    clearTimeout(timer);
+    timer = setTimeout(function () { statusEl.textContent = ""; }, 2000);
+  }
+
+  function store(slug, text) {
+    var db = load();
+    if (text.trim().length === 0) delete db[slug];
+    else db[slug] = { text: text, updated: new Date().toISOString() };
+    persist(db);
+    refresh();
+  }
+
+  cards.forEach(function (c) {
+    c.querySelector(".card-notes").addEventListener("click", function () {
+      current = c.getAttribute("data-deck");
+      var meta = info(current);
+      document.getElementById("note-model").textContent = meta.model;
+      document.getElementById("note-title").textContent = meta.title;
+      textEl.value = (load()[current] || {}).text || "";
+      statusEl.textContent = "";
+      dialog.showModal();
+      textEl.focus();
+    });
+  });
+
+  textEl.addEventListener("input", function () {
+    if (!current) return;
+    var v = textEl.value;
+    store(current, v);
+    flashStatus(v.trim() ? "Saved" : "Note removed (empty)");
+  });
+
+  deleteBtn.addEventListener("click", function () {
+    if (!current) return;
+    textEl.value = "";
+    store(current, "");
+    flashStatus("Note removed");
+  });
+
+  function close() { current = null; dialog.close(); }
+  doneBtn.addEventListener("click", close);
+  closeBtn.addEventListener("click", close);
+  dialog.addEventListener("click", function (e) { if (e.target === dialog) close(); });
+
+  exportBtn.addEventListener("click", function () {
+    var db = load();
+    var lines = ["# Trade Deck Library — Notes", "",
+      "_Exported " + new Date().toLocaleString() + " · https://toddwmac.github.io/trade-launch/_", ""];
+    var any = false;
+    cards.forEach(function (c) {
+      var slug = c.getAttribute("data-deck");
+      var note = db[slug];
+      if (!note || !note.text || !note.text.trim()) return;
+      any = true;
+      var meta = info(slug);
+      lines.push("## " + meta.model + " — " + meta.title, "",
+        "<" + meta.url + ">",
+        "_Last edited: " + new Date(note.updated).toLocaleString() + "_", "",
+        note.text.trim(), "", "---", "");
+    });
+    if (!any) { window.alert("No notes to export yet."); return; }
+    var blob = new Blob([lines.join("\n")], { type: "text/markdown;charset=utf-8" });
+    var a = document.createElement("a");
+    var d = new Date();
+    var stamp = d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
+    a.href = URL.createObjectURL(blob);
+    a.download = "trade-deck-notes-" + stamp + ".md";
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(function () { URL.revokeObjectURL(a.href); }, 500);
+  });
+
+  clearBtn.addEventListener("click", function () {
+    var db = load();
+    var n = Object.keys(db).filter(function (k) { return db[k] && db[k].text && db[k].text.trim(); }).length;
+    if (!window.confirm("Remove all " + n + " notes from this browser? This cannot be undone.")) return;
+    persist({});
+    refresh();
+  });
+
+  refresh();
+})();
+</script>
 </body>
 </html>
