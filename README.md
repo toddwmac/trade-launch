@@ -31,24 +31,24 @@ one self-contained `dist\index.html`. That `dist` folder *is* a git repository, 
 public GitHub repo with Pages enabled. Updating a deck = rebuild + commit + push from `dist`.
 GitHub re-publishes automatically in under a minute.
 
-**Live sites** — slug convention: `{model}-{topic}-{type}`, type is `pitch` or `skills`.
-Full mapping table lives in **PUBLISHING.md** (local workspace).
+**Live sites & repositories** — slug convention: `{model}-{topic}-{type}`, type is `pitch` or
+`skills`. Full mapping table lives in **PUBLISHING.md** (local workspace).
 
-| Deck | URL |
-|---|---|
-| Launch pad | https://toddwmac.github.io/trade-launch/ |
-| inking-hvac-pitch | https://toddwmac.github.io/inking-hvac-pitch/ |
-| gemini-hvac-pitch | https://toddwmac.github.io/gemini-hvac-pitch/ |
-| gpt5-hvac-pitch (vanilla JS) | https://toddwmac.github.io/gpt5-hvac-pitch/ |
-| opus5max-hvac-skills | https://toddwmac.github.io/opus5max-hvac-skills/ |
-| muse-electrical-pitch | https://toddwmac.github.io/muse-electrical-pitch/ |
-| opus-electrical-pitch | https://toddwmac.github.io/opus-electrical-pitch/ |
-| gpt56-electrical-skills | https://toddwmac.github.io/gpt56-electrical-skills/ |
-| inking-electrical-skills | https://toddwmac.github.io/inking-electrical-skills/ |
-| mysteryb-electrical-skills | https://toddwmac.github.io/mysteryb-electrical-skills/ |
-| glm52-electrical-skills | https://toddwmac.github.io/glm52-electrical-skills/ |
-| qwen38-trades-skills (all trades) | https://toddwmac.github.io/qwen38-trades-skills/ |
-| mystery-pilot (position paper) | https://toddwmac.github.io/mystery-pilot/ |
+| Deck | Repository | Live site |
+|---|---|---|
+| Launch pad (library index + notes) | [trade-launch](https://github.com/toddwmac/trade-launch) | https://toddwmac.github.io/trade-launch/ |
+| inking-hvac-pitch | [inking-hvac-pitch](https://github.com/toddwmac/inking-hvac-pitch) | https://toddwmac.github.io/inking-hvac-pitch/ |
+| gemini-hvac-pitch | [gemini-hvac-pitch](https://github.com/toddwmac/gemini-hvac-pitch) | https://toddwmac.github.io/gemini-hvac-pitch/ |
+| gpt5-hvac-pitch (vanilla JS) | [gpt5-hvac-pitch](https://github.com/toddwmac/gpt5-hvac-pitch) | https://toddwmac.github.io/gpt5-hvac-pitch/ |
+| opus5max-hvac-skills | [opus5max-hvac-skills](https://github.com/toddwmac/opus5max-hvac-skills) | https://toddwmac.github.io/opus5max-hvac-skills/ |
+| muse-electrical-pitch | [muse-electrical-pitch](https://github.com/toddwmac/muse-electrical-pitch) | https://toddwmac.github.io/muse-electrical-pitch/ |
+| opus-electrical-pitch | [opus-electrical-pitch](https://github.com/toddwmac/opus-electrical-pitch) | https://toddwmac.github.io/opus-electrical-pitch/ |
+| gpt56-electrical-skills | [gpt56-electrical-skills](https://github.com/toddwmac/gpt56-electrical-skills) | https://toddwmac.github.io/gpt56-electrical-skills/ |
+| inking-electrical-skills | [inking-electrical-skills](https://github.com/toddwmac/inking-electrical-skills) | https://toddwmac.github.io/inking-electrical-skills/ |
+| mysteryb-electrical-skills | [mysteryb-electrical-skills](https://github.com/toddwmac/mysteryb-electrical-skills) | https://toddwmac.github.io/mysteryb-electrical-skills/ |
+| glm52-electrical-skills | [glm52-electrical-skills](https://github.com/toddwmac/glm52-electrical-skills) | https://toddwmac.github.io/glm52-electrical-skills/ |
+| qwen38-trades-skills (all trades) | [qwen38-trades-skills](https://github.com/toddwmac/qwen38-trades-skills) | https://toddwmac.github.io/qwen38-trades-skills/ |
+| mystery-pilot (position paper) | [mystery-pilot](https://github.com/toddwmac/mystery-pilot) | https://toddwmac.github.io/mystery-pilot/ |
 
 ## Updating an existing deck
 
